@@ -1,7 +1,7 @@
 package com.example.restaurant_be.user;
 
 public enum Role {
-    SUPER_AMDIN,
+    SUPER_ADMIN,
     CASHIER,
     CHEF,
     WAREHOUSE_MANAGER,
