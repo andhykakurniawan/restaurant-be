@@ -1,4 +1,5 @@
 package com.example.restaurant_be.user.entity;
+import com.example.restaurant_be.common.base.BaseEntity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -10,7 +11,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class User {
+public class User extends BaseEntity {
     
     @Column(nullable = false)
     private String username;
