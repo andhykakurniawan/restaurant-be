@@ -1,7 +1,11 @@
-package com.example.restaurant_be.auth;
+package com.example.restaurant_be.auth.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import com.example.restaurant_be.auth.dto.LoginRequest;
+import com.example.restaurant_be.auth.dto.LoginResponse;
+import com.example.restaurant_be.auth.service.AuthService;
 
 @RestController
 @RequestMapping("/api/auth")

@@ -1,4 +1,4 @@
-package com.example.restaurant_be.user;
+package com.example.restaurant_be.user.entity;
 
 public enum Role {
     SUPER_ADMIN,

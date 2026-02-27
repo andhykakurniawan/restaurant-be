@@ -1,4 +1,4 @@
-package com.example.restaurant_be.auth;
+package com.example.restaurant_be.auth.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

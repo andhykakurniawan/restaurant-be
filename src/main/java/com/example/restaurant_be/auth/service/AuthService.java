@@ -1,8 +1,9 @@
-package com.example.restaurant_be.auth;
+package com.example.restaurant_be.auth.service;
 
 import com.example.restaurant_be.security.JwtService;
-import com.example.restaurant_be.user.User;
-import com.example.restaurant_be.user.UserRepository;
+import com.example.restaurant_be.user.entity.User;
+import com.example.restaurant_be.user.repository.UserRepository;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

@@ -1,8 +1,9 @@
 package com.example.restaurant_be.config;
 
-import com.example.restaurant_be.user.Role;
-import com.example.restaurant_be.user.User;
-import com.example.restaurant_be.user.UserRepository;
+import com.example.restaurant_be.user.entity.Role;
+import com.example.restaurant_be.user.entity.User;
+import com.example.restaurant_be.user.repository.UserRepository;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
