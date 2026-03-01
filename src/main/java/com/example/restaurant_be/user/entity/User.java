@@ -1,4 +1,8 @@
 package com.example.restaurant_be.user.entity;
+import com.example.restaurant_be.common.base.BaseEntity;
+
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.SQLRestriction;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -7,10 +11,12 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "users")
+@SQLDelete(sql = "UPDATE users SET is_active = false WHERE id = ?")
+@SQLRestriction("is_active = true")
 @Getter
 @Setter
 @NoArgsConstructor
-public class User {
+public class User extends BaseEntity {
     
     @Column(nullable = false)
     private String username;
