@@ -1,16 +1,17 @@
 package com.example.restaurant_be.user.service;
 
-import com.example.restaurant_be.user.dto.UserRequest;
-import com.example.restaurant_be.user.dto.UserResponse;
-import com.example.restaurant_be.user.entity.User;
-import com.example.restaurant_be.user.repository.UserRepository;
-import lombok.RequiredArgsConstructor;
+import java.util.List;
+import java.util.UUID;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.UUID;
+import com.example.restaurant_be.user.dto.UserRequest;
+import com.example.restaurant_be.user.dto.UserResponse;
+import com.example.restaurant_be.user.entity.User;
+import com.example.restaurant_be.user.repository.UserRepository;
+
+import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
