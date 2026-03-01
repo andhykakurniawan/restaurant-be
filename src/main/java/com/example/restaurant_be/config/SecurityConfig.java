@@ -25,7 +25,8 @@ public class SecurityConfig {
 
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll()
-                        .requestMatchers("/api/admin/**").hasAuthority("ROLE_SUPER_ADMIN")
+                        .requestMatchers("/api/users/**").permitAll()
+                        // .requestMatchers("/api/admin/**").hasAuthority("ROLE_SUPER_ADMIN")
                         .anyRequest().authenticated())
 
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
