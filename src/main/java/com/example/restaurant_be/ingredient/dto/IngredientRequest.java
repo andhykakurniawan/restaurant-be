@@ -18,13 +18,13 @@ public record IngredientRequest(
 
         @NotNull
         @DecimalMin("0.0")
-        BigDecimal currentStock,
+        BigDecimal currentstock,
 
         @NotNull
         @DecimalMin("0.0")
-        BigDecimal minimumStock,
+        BigDecimal minimumstock,
 
         @NotNull
         @DecimalMin("0.0")
-        BigDecimal costPerUnit
+        BigDecimal costperunit
 ) {}
