@@ -20,5 +20,11 @@ public record MenuRequest(
         BigDecimal price,
 
         @NotNull
+        String imageUrl,
+
+        @NotNull
+        boolean isAvailable,
+
+        @NotNull
         UUID categoryId
 ) {}

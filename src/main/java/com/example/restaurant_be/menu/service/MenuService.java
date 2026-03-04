@@ -34,6 +34,8 @@ public class MenuService {
                 menu.getPrice(),
                 menu.getCategory().getId(),
                 menu.getCategory().getName(),
+                menu.getImageUrl(),
+                menu.getIsAvailable(),
                 menu.getIsActive());
     }
 
@@ -50,6 +52,8 @@ public class MenuService {
         menu.setName(request.name());
         menu.setDescription(request.description());
         menu.setPrice(request.price());
+        menu.setImageUrl(request.imageUrl());
+        menu.setIsAvailable(request.isAvailable());
         menu.setCategory(category);
 
         Menu saved = menuRepository.save(menu);

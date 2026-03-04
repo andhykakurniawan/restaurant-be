@@ -10,5 +10,7 @@ public record MenuResponse(
         BigDecimal price,
         UUID categoryId,
         String categoryName,
+        String imageUrl,
+        boolean is_available,
         boolean is_active
 ) {}

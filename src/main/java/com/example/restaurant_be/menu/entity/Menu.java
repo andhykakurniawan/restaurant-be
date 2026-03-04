@@ -26,8 +26,14 @@ public class Menu extends BaseEntity {
     @Column(nullable = false)
     private String description;
 
-    @Column(nullable = false)
+    @Column(nullable = false, precision = 12, scale = 2)
     private BigDecimal price;
+
+    @Column(name = "image_url")
+    private String imageUrl;
+
+    @Column(name = "is_available", nullable = false)
+    private Boolean isAvailable = true;
 
     @JoinColumn(name = "category_id", nullable = false)
     @ManyToOne
