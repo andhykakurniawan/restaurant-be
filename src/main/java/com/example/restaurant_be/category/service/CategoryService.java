@@ -60,4 +60,19 @@ public class CategoryService {
 
         categoryRepository.delete(category);
     }
+
+    public CategoryResponse restore(UUID id) {
+
+        Category category = categoryRepository.findByIdIncludingInactive(id)
+                .orElseThrow(() -> new IllegalArgumentException("Category not found"));
+
+        if (Boolean.TRUE.equals(category.getIsActive())) {
+            throw new IllegalArgumentException("Category already active");
+        }
+
+        category.setIsActive(true);
+        Category saved = categoryRepository.save(category);
+
+        return toResponse(saved);
+    }
 }

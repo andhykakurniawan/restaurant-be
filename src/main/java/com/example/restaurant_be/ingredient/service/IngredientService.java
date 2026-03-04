@@ -67,4 +67,19 @@ public class IngredientService {
 
         ingredientRepository.delete(ingredient);
     }
+
+    public IngredientResponse restore(UUID id) {
+
+        Ingredients ingredient = ingredientRepository.findByIdIncludingInactive(id)
+                .orElseThrow(() -> new IllegalArgumentException("Ingredient not found"));
+
+        if (Boolean.TRUE.equals(ingredient.getIsActive())) {
+            throw new IllegalArgumentException("Ingredient already active");
+        }
+
+        ingredient.setIsActive(true);
+        Ingredients restored = ingredientRepository.save(ingredient);
+
+        return toResponse(restored);
+    }
 }

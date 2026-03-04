@@ -6,6 +6,7 @@ import java.util.UUID;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -53,5 +54,14 @@ public class MenuController {
     public ResponseEntity<ApiResponse<Void>> deleteById(@PathVariable UUID id) {
         menuService.delete(id);
         return ResponseEntity.ok(ApiResponse.success("Menu deleted successfully", null));
+    }
+
+    @PatchMapping("/{id}/restore")
+    public ResponseEntity<ApiResponse<MenuResponse>> restore(@PathVariable UUID id) {
+
+        MenuResponse response = menuService.restore(id);
+
+        return ResponseEntity.ok(
+                ApiResponse.success("Menu restored successfully", response));
     }
 }

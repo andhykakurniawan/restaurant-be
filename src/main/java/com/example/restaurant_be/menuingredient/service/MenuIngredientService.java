@@ -71,4 +71,14 @@ public class MenuIngredientService {
         }
         menuIngredientRepository.deleteById(id);
     }
+
+    public MenuIngredientResponse restore(UUID id) {
+        MenuIngredient menuIngredient = menuIngredientRepository.findByIdIncludingInactive(id)
+                .orElseThrow(() -> new IllegalArgumentException("MenuIngredient not found"));
+
+        menuIngredient.setIsActive(true);
+        MenuIngredient restored = menuIngredientRepository.save(menuIngredient);
+
+        return toResponse(restored);
+    }
 }

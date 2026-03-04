@@ -70,4 +70,18 @@ public class MenuService {
 
         menuRepository.delete(menu);
     }
+
+    public MenuResponse restore(UUID id) {
+        Menu menu = menuRepository.findByIdIncludingInactive(id)
+                .orElseThrow(() -> new IllegalArgumentException("Menu not found"));
+
+        if (Boolean.TRUE.equals(menu.getIsActive())) {
+            throw new IllegalArgumentException("Menu already active");
+        }
+
+        menu.setIsActive(true);
+        Menu saved = menuRepository.save(menu);
+
+        return toResponse(saved);
+    }
 }
