@@ -28,8 +28,9 @@ public class SecurityConfig {
                         .requestMatchers("/api/users/**").permitAll()
                         .requestMatchers("/api/categories/**").permitAll()
                         .requestMatchers("/api/ingredients/**").permitAll()
-                        // .requestMatchers("/api/menus/**").permitAll()
-                        // .requestMatchers("/api/menuingredients/**").permitAll()
+                        .requestMatchers("/api/menus/**").permitAll()
+                        .requestMatchers("/api/menu-ingredients/**").permitAll()
+                        .requestMatchers("/api/orders/**").permitAll()
                         // .requestMatchers("/api/admin/**").hasAuthority("ROLE_SUPER_ADMIN")
                         .anyRequest().authenticated())
 

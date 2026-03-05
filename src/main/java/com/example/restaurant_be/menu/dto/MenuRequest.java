@@ -1,30 +1,30 @@
-package com.example.restaurant_be.ingredient.dto;
+package com.example.restaurant_be.menu.dto;
 
 import java.math.BigDecimal;
-
-import com.example.restaurant_be.ingredient.entity.Unit;
+import java.util.UUID;
 
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-public record IngredientRequest(
+public record MenuRequest(
 
         @NotBlank
         String name,
 
         @NotBlank
-        Unit unit,
+        String description,
 
         @NotNull
         @DecimalMin("0.0")
-        BigDecimal currentstock,
+        BigDecimal price,
 
         @NotNull
-        @DecimalMin("0.0")
-        BigDecimal minimumstock,
+        String imageUrl,
 
         @NotNull
-        @DecimalMin("0.0")
-        BigDecimal costperunit
+        boolean isAvailable,
+
+        @NotNull
+        UUID categoryId
 ) {}

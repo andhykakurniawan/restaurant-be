@@ -45,9 +45,9 @@ public class IngredientService {
         Ingredients ingredient = new Ingredients();
         ingredient.setName(request.name());
         ingredient.setUnit(request.unit());
-        ingredient.setCurrentStock(request.currentStock());
-        ingredient.setMinimumStock(request.minimumStock());
-        ingredient.setCostPerUnit(request.costPerUnit());
+        ingredient.setCurrentStock(request.currentstock());
+        ingredient.setMinimumStock(request.minimumstock());
+        ingredient.setCostPerUnit(request.costperunit());
 
         Ingredients saved = ingredientRepository.save(ingredient);
 
@@ -66,5 +66,20 @@ public class IngredientService {
                 .orElseThrow(() -> new IllegalArgumentException("Ingredient not found"));
 
         ingredientRepository.delete(ingredient);
+    }
+
+    public IngredientResponse restore(UUID id) {
+
+        Ingredients ingredient = ingredientRepository.findByIdIncludingInactive(id)
+                .orElseThrow(() -> new IllegalArgumentException("Ingredient not found"));
+
+        if (Boolean.TRUE.equals(ingredient.getIsActive())) {
+            throw new IllegalArgumentException("Ingredient already active");
+        }
+
+        ingredient.setIsActive(true);
+        Ingredients restored = ingredientRepository.save(ingredient);
+
+        return toResponse(restored);
     }
 }

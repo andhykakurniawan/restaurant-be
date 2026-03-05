@@ -66,4 +66,17 @@ public class UserService {
 
         userRepository.delete(user);
     }
+
+    public UserResponse restore(UUID id) {
+        User user = userRepository.findByIdIncludingInactive(id)
+                .orElseThrow(() -> new IllegalArgumentException("User not found"));
+
+        if (Boolean.TRUE.equals(user.getIsActive())) {
+            throw new IllegalArgumentException("User already active");
+        }
+
+        user.setIsActive(true);
+        User saved = userRepository.save(user);
+        return toResponse(saved);
+    }
 }
